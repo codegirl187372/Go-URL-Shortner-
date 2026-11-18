@@ -1,20 +1,21 @@
-# Go URL Shortener & Analytics Server ⚡
+# Go URL Shortener & Analytics API
 
-A high-performance, thread-safe REST API backend built in **Go (Golang)** using only the standard library. Designed to demonstrate concurrent data handling, custom HTTP middlewares, structured JSON responses, and graceful server shutdown.
+A high-performance, production-ready URL shortening and analytics REST API built entirely with **Go (Golang)** standard library. Designed with thread-safe concurrency, custom middlewares, and graceful shutdown.
 
-## Key Engineering Highlights
-- **Zero External Dependencies:** Built purely with Go's standard `net/http` (Go 1.22+ method-based routing).
-- **Concurrency & Thread-Safety:** Uses `sync.RWMutex` to prevent race conditions during high-concurrency read/write operations.
-- **Custom Middleware Chain:** Includes request latency logging (`loggingMiddleware`) and panic recovery (`recoveryMiddleware`) to ensure zero downtime.
-- **Graceful Shutdown:** Listens to OS signals (`SIGINT`, `SIGTERM`) to finish active requests before shutting down cleanly.
-- **Real-Time Click Analytics:** Tracks total clicks and last accessed timestamps for every shortened link.
+## 🚀 Features
+
+- **Zero External Dependencies:** Built purely using Go's standard library (`net/http`), ensuring lightweight performance and zero dependency vulnerabilities.
+- **Thread-Safe In-Memory Storage:** Utilizes `sync.RWMutex` to handle concurrent reads and writes safely without race conditions.
+- **Custom Middlewares:** Includes structured request logging and panic recovery middlewares for production stability.
+- **Graceful Shutdown:** Handles system interruption signals (`SIGINT`, `SIGTERM`) to process ongoing requests safely before closing.
+- **Real-Time Analytics:** Tracks total click counts and last accessed timestamps for every shortened link.
 
 ---
 
-## Project Structure
+## 🛠️ Project Structure
 
 ```text
 go-url-shortener/
-├── go.mod       # Go module definition
-├── main.go      # Core server, store engine, middlewares, and handlers
-└── README.md    # Project documentation and API reference
+├── go.mod        # Module definition file
+├── main.go       # Core server, routing, and storage logic
+└── README.md     # Project documentation
